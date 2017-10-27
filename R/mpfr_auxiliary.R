@@ -1,14 +1,16 @@
 
 # LIST --------------------------------------------------------------------
-# 1. large_divisors_proper    : find all proper divisors
-# 2. large_isprime            : check if the number is prime
-# 3. large_primesToN          : generate prime numbers up to N
+# 01. large_divisors_proper    : find all proper divisors
+# 02. large_isprime            : check if the number is prime
+# 03. large_primesToN          : generate prime numbers up to N
 #    NOTE that those 2 and 3 are very slow, should be slow.
 #    Consider about porting AKS algorithm (http://yves.gallot.pagesperso-orange.fr/src/aks_gmp.html)
-# 4. large_divisors_prime     : find all prime divisors
-# 5. large_primefactors       : returns prime factors only
-# 6. large_primefactorization : returns a list of prime factors and their correponding multiplicity
-# 7. large_gcd                : using Recursive Formula
+# 04. large_divisors_prime     : find all prime divisors
+# 05. large_primefactors       : returns prime factors only
+# 06. large_primefactorization : returns a list of prime factors and their correponding multiplicity
+# 07. large_gcd                : using Recursive Formula
+# 08. large_binarize
+# 09. large_p_ary
 #  ------------------------------------------------------------------------
 # 1. large_divisors_proper
 #' @keywords internal
@@ -172,3 +174,29 @@ large_binarize <- function(n, PrecisionBits){
     return(outvec)
   }
 }
+
+# 9. large_nary
+#' @keywords internal
+#' @noRd
+large_p_ary <- function(n, p){
+  if (n==0){
+    return(0)
+  } else {
+    outvec = 0
+    while (n!=0){
+      outvec = append(outvec, asNumeric(n%%p))
+      n      = floor(n/p)
+    }
+    # logp = log(mpfr(p, PrecisionBits))
+    # outvec = rep(0,as.integer(floor(log(n)/logp))+1)
+    # loutvec= length(outvec)
+    # for (i in 1:(loutvec)){
+    #   outvec[loutvec-i+1] = asNumeric(n%%p)
+    #   n = floor(n/p)
+    # }
+    outvec = outvec[2:length(outvec)]
+    return(rev(outvec))
+  }
+}
+
+

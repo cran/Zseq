@@ -1,7 +1,7 @@
 Package: Zseq
 Type: Package
 Title: Integer Sequence Generator
-Version: 0.1.0
+Version: 0.1.1
 Author: Kisung You
 Maintainer: Kisung You <kyou@nd.edu>
 Description: Generates well-known integer sequences.
@@ -14,6 +14,6 @@ LazyData: true
 Imports: Rmpfr
 RoxygenNote: 6.0.1
 NeedsCompilation: no
-Packaged: 2017-10-26 17:47:02 UTC; kisung
+Packaged: 2017-10-27 16:04:21 UTC; kisung
 Repository: CRAN
-Date/Publication: 2017-10-26 18:00:31 UTC
+Date/Publication: 2017-10-27 16:18:07 UTC

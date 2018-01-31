@@ -5,7 +5,7 @@
 \alias{A000045}
 \title{Fibonacci numbers}
 \usage{
-Fibonacci(n, Rmpfr = TRUE, PrecisionBits = 496)
+Fibonacci(n, Rmpfr = FALSE, PrecisionBits = 496)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}

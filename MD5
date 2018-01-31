@@ -1,4 +1,4 @@
-31ccd60ab93a05a2a18573d47619c1e8 *DESCRIPTION
+fcfbb38b5f3a2aa9da5a8632d7df0012 *DESCRIPTION
 16176c39fd6bfdca8eec48f9709c7b1d *NAMESPACE
 a5bbfc305be86ad0796da3f629d88740 *R/Abundant.R
 2791a816ffc788fe168e1ad24ff1e628 *R/Achilles.R
@@ -13,7 +13,7 @@ f80b04bbfccbfea3ae7ccdbbdc703c30 *R/Extravagant.R
 312fb4889bdbd2f18fb43cc5fd9ac2b1 *R/Factorial.Alternating.R
 efce06172d85eba4a5ea3164f5e80900 *R/Factorial.Double.R
 cbe9634bdfab584ea5d5904759ec327d *R/Factorial.R
-4a36b70eaef1835744bd2b952a2b0f98 *R/Fibonacci.R
+57ee441015c407c2b2953e131a83ad8c *R/Fibonacci.R
 d03e4d786c3b68d537ee0b08695ed7d9 *R/Frugal.R
 bb8d2bdf6657025d5de669a185d38fff *R/Happy.R
 6a4bb992454ee931741a7200b14a9531 *R/Juggler.Largest.R
@@ -41,7 +41,7 @@ a5b8ca59e51d44d5de225e7f663eee02 *R/mpfr_auxiliary.R
 a811a1ddcba55bc8c82b7cf51c594883 *R/package-Zseq.R
 49f0eaf1383a91977d84d123342c9676 *man/A000032.Rd
 f9a2f24b4770e5a758bf249a19b26ba6 *man/A000040.Rd
-d7f78e68a68ede31a7b9c232f27e98be *man/A000045.Rd
+02ff3b7d68489228502142188919df8f *man/A000045.Rd
 476c3f01af4cb0bfb33bbd64bf4d1bb8 *man/A000069.Rd
 384af988b638c0253951a76fe9037b7e *man/A000085.Rd
 4b41cc52ef69c6f5d5c57c1f06297a46 *man/A000108.Rd

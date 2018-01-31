@@ -20,7 +20,7 @@
 #' @rdname A000045
 #' @aliases A000045
 #' @export
-Fibonacci <- function(n, Rmpfr=TRUE, PrecisionBits=496){
+Fibonacci <- function(n, Rmpfr=FALSE, PrecisionBits=496){
   ## Preprocessing for 'n'
   if ((length(n)!=1)||(abs(n-round(n))>sqrt(.Machine$double.eps))||(n<0)){
     stop("* Zsequence : input 'n' should be a positive integer.")
@@ -36,7 +36,7 @@ Fibonacci <- function(n, Rmpfr=TRUE, PrecisionBits=496){
   }
 
   ## Main Computation : first, compute in Rmpfr form
-  output = mpfrArray(rep(0,6), PrecisionBits)
+  output = mpfrArray(rep(0,n), PrecisionBits)
 
   if (n==1){
     output[1] = 0

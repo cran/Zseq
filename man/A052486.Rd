@@ -5,14 +5,12 @@
 \alias{A052486}
 \title{Achilles numbers}
 \usage{
-Achilles(n, Rmpfr = TRUE, PrecisionBits = 496)
+Achilles(n, gmp = TRUE)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}
 
-\item{Rmpfr}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
-
-\item{PrecisionBits}{a positive integer for precision bits larger than 2.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
 }
 \value{
 a vector of length \code{n} containing first entries from the sequence.
@@ -22,10 +20,7 @@ Under OEIS \href{https://oeis.org/A052486}{A052486}, an \emph{Achilles} number i
 that is \emph{powerful} but \emph{not perfect}. First 6 Achilles numbers are 72, 108, 200, 288, 392, 432.
 }
 \examples{
-## generate first 3 Achilles numbers
-first3 = Achilles(3)
-
-## print without trailing 0's.
-print(first3, drop0trailing = TRUE)
+## generate first 3 Achilles numbers and print
+print(Achilles(3))
 
 }

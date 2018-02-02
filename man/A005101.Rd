@@ -5,14 +5,12 @@
 \alias{A005101}
 \title{Abundant numbers}
 \usage{
-Abundant(n, Rmpfr = TRUE, PrecisionBits = 496)
+Abundant(n, gmp = TRUE)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}
 
-\item{Rmpfr}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
-
-\item{PrecisionBits}{a positive integer for precision bits larger than 2.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
 }
 \value{
 a vector of length \code{n} containing first entries from the sequence.
@@ -23,11 +21,8 @@ a number whose proper divisors sum up to the extent greater than the number itse
 6 abundant numbers are 12, 18, 20, 24, 30, 36.
 }
 \examples{
-## generate first 30 Abundant numbers
-first30 = Abundant(30)
-
-## print without trailing 0's.
-print(first30, drop0trailing = TRUE)
+## generate first 30 Abundant numbers and print it
+print(Abundant(30))
 
 }
 \seealso{

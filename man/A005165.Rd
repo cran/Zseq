@@ -5,14 +5,12 @@
 \alias{A005165}
 \title{Alternating Factorial numbers}
 \usage{
-Factorial.Alternating(n, Rmpfr = TRUE, PrecisionBits = 496)
+Factorial.Alternating(n, gmp = TRUE)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}
 
-\item{Rmpfr}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
-
-\item{PrecisionBits}{a positive integer for precision bits larger than 2.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
 }
 \value{
 a vector of length \code{n} containing first entries from the sequence.
@@ -23,10 +21,7 @@ first \code{n} factorials of positive integers. First 6 such numbers are  	0, 1,
 }
 \examples{
 ## generate first 5 Alternating Factorial numbers
-first5 = Factorial.Alternating(5)
-
-## print without trailing 0's.
-print(first5, drop0trailing = TRUE)
+print(Factorial.Alternating(5))
 
 }
 \seealso{

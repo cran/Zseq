@@ -5,14 +5,12 @@
 \alias{A007770}
 \title{Happy numbers}
 \usage{
-Happy(n, Rmpfr = TRUE, PrecisionBits = 496)
+Happy(n, gmp = TRUE)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}
 
-\item{Rmpfr}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
-
-\item{PrecisionBits}{a positive integer for precision bits larger than 2.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
 }
 \value{
 a vector of length \code{n} containing first entries from the sequence.
@@ -24,9 +22,6 @@ First 6 Happy numbers are 1, 7, 10, 13, 19, 23.
 }
 \examples{
 ## generate first 30 happy numbers
-first30 = Happy(30)
-
-## print without trailing 0's.
-print(first30, drop0trailing = TRUE)
+print(Happy(30))
 
 }

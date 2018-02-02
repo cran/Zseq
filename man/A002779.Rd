@@ -5,14 +5,12 @@
 \alias{A002779}
 \title{Palindromic squares}
 \usage{
-Palindromic.Squares(n, Rmpfr = TRUE, PrecisionBits = 496)
+Palindromic.Squares(n, gmp = TRUE)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}
 
-\item{Rmpfr}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
-
-\item{PrecisionBits}{a positive integer for precision bits larger than 2.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
 }
 \value{
 a vector of length \code{n} containing first entries from the sequence.
@@ -23,9 +21,6 @@ both Palindromic and Square. First 6 such numbers are 0, 1, 4, 9, 121, 484. It u
 }
 \examples{
 ## generate first 10 palindromic squares
-first10 = Palindromic.Squares(10)
-
-## print without trailing 0's.
-print(first10, drop0trailing = TRUE)
+print(Palindromic.Squares(10))
 
 }

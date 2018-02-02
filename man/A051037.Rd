@@ -5,14 +5,12 @@
 \alias{A051037}
 \title{Regular numbers}
 \usage{
-Regular(n, Rmpfr = TRUE, PrecisionBits = 496)
+Regular(n, gmp = TRUE)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}
 
-\item{Rmpfr}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
-
-\item{PrecisionBits}{a positive integer for precision bits larger than 2.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
 }
 \value{
 a vector of length \code{n} containing first entries from the sequence.
@@ -23,9 +21,6 @@ even divide powers of 60, or equivalently, whose prime divisors are only 2,3, an
 }
 \examples{
 ## generate first 20 Regular numbers
-first20 = Regular(20)
-
-## print without trailing 0's.
-print(first20, drop0trailing = TRUE)
+print(Regular(20))
 
 }

@@ -5,14 +5,12 @@
 \alias{A005100}
 \title{Deficient numbers}
 \usage{
-Deficient(n, Rmpfr = TRUE, PrecisionBits = 496)
+Deficient(n, gmp = TRUE)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}
 
-\item{Rmpfr}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
-
-\item{PrecisionBits}{a positive integer for precision bits larger than 2.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
 }
 \value{
 a vector of length \code{n} containing first entries from the sequence.
@@ -24,10 +22,7 @@ a number whose proper divisors sum up to the extent smaller than the number itse
 }
 \examples{
 ## generate first 30 Deficient numbers
-first30 = Deficient(30)
-
-## print without trailing 0's.
-print(first30, drop0trailing = TRUE)
+print(Deficient(30))
 
 }
 \seealso{

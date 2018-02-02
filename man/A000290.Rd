@@ -5,14 +5,12 @@
 \alias{A000290}
 \title{Square numbers}
 \usage{
-Square(n, Rmpfr = TRUE, PrecisionBits = 496)
+Square(n, gmp = TRUE)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}
 
-\item{Rmpfr}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
-
-\item{PrecisionBits}{a positive integer for precision bits larger than 2.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
 }
 \value{
 a vector of length \code{n} containing first entries from the sequence.
@@ -24,9 +22,6 @@ for \eqn{n\ge 0}. First 6 Square numbers are  	0, 1, 4, 9, 16, 25.
 }
 \examples{
 ## generate first 20 Square numbers
-first20 = Square(20)
-
-## print without trailing 0's.
-print(first20, drop0trailing = TRUE)
+print(Square(20))
 
 }

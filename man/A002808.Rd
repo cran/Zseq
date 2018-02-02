@@ -5,14 +5,12 @@
 \alias{A002808}
 \title{Composite numbers}
 \usage{
-Composite(n, Rmpfr = TRUE, PrecisionBits = 496)
+Composite(n, gmp = TRUE)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}
 
-\item{Rmpfr}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
-
-\item{PrecisionBits}{a positive integer for precision bits larger than 2.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
 }
 \value{
 a vector of length \code{n} containing first entries from the sequence.
@@ -24,9 +22,6 @@ The first 6 composite numbers are 4, 6, 8, 9, 10, 12.
 }
 \examples{
 ## generate first 30 Composite numbers
-first30 = Composite(30)
-
-## print without trailing 0's.
-print(first30, drop0trailing = TRUE)
+print(Composite(30))
 
 }

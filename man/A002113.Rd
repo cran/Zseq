@@ -5,16 +5,14 @@
 \alias{A002113}
 \title{Palindromic numbers}
 \usage{
-Palindromic(n, base = 10, Rmpfr = TRUE, PrecisionBits = 496)
+Palindromic(n, base = 10, gmp = TRUE)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}
 
 \item{base}{choice of base.}
 
-\item{Rmpfr}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
-
-\item{PrecisionBits}{a positive integer for precision bits larger than 2.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
 }
 \value{
 a vector of length \code{n} containing first entries from the sequence.
@@ -26,9 +24,6 @@ This function supports various base by specifying the parameter \code{base} but 
 }
 \examples{
 ## generate first 30 palindromic number in decimal
-first30 = Palindromic(30)
-
-## print without trailing 0's.
-print(first30, drop0trailing = TRUE)
+print(Palindromic(30))
 
 }

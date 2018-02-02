@@ -5,14 +5,12 @@
 \alias{A000142}
 \title{Factorial numbers}
 \usage{
-Factorial(n, Rmpfr = TRUE, PrecisionBits = 496)
+Factorial(n, gmp = TRUE)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}
 
-\item{Rmpfr}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
-
-\item{PrecisionBits}{a positive integer for precision bits larger than 2.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
 }
 \value{
 a vector of length \code{n} containing first entries from the sequence.
@@ -23,9 +21,6 @@ First 6 such numbers are   	1, 1, 2, 6, 24, 120
 }
 \examples{
 ## generate first 10 Factorials
-first10 = Factorial(10)
-
-## print without trailing 0's.
-print(first10, drop0trailing = TRUE)
+print(Factorial(10))
 
 }

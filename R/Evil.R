@@ -4,53 +4,38 @@
 #' First 6 Evil numbers are  	0, 3, 5, 6, 9, 10.
 #'
 #' @param n the number of first \code{n} entries from the sequence.
-#' @param Rmpfr a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.
-#' @param PrecisionBits a positive integer for precision bits larger than 2.
+#' @param gmp a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.
 #'
 #' @return a vector of length \code{n} containing first entries from the sequence.
 #'
 #' @examples
 #' ## generate first 20 Evil numbers
-#' first20 = Evil(20)
-#'
-#' ## print without trailing 0's.
-#' print(first20, drop0trailing = TRUE)
+#' print(Evil(20))
 #'
 #' @seealso \code{\link{Odious}}
 #' @rdname A001969
 #' @aliases A001969
 #' @export
-Evil <- function(n, Rmpfr=TRUE, PrecisionBits=496){
+Evil <- function(n, gmp=TRUE){
   ## Preprocessing for 'n'
-  if ((length(n)!=1)||(abs(n-round(n))>sqrt(.Machine$double.eps))||(n<0)){
-    stop("* Zsequence : input 'n' should be a positive integer.")
-  }
-  n = as.integer(n)
-
-  ## Control over PrecisionBits
-  if (!missing(PrecisionBits)){
-    if ((length(PrecisionBits)!=1)||(PrecisionBits<2)||(is.infinite(PrecisionBits))||(is.na(PrecisionBits))||(abs(PrecisionBits-round(PrecisionBits))>sqrt(.Machine$double.eps))){
-      stop("* Zsequence : input 'PrecisionBits' should be a positive integer >= 2.")
-    }
-    PrecisionBits = as.integer(PrecisionBits)
-  }
+  n = check_n(n)
 
   ## Main Computation : first, compute in Rmpfr form
-  output = mpfrArray(rep(0,n), PrecisionBits)
-  output[1] = 0
+  output = as.bigz(numeric(n))
+  output[1] = as.bigz(0)
   if (n>1){
-    tgt = mpfr(1, PrecisionBits)
+    tgt = as.bigz(1)
     iter = 1
     while (iter<n){
       tgt = tgt + 1
-      if (is.Evil(tgt, PrecisionBits)){
+      if (is.Evil(tgt)){
         iter = iter+1
         output[iter] = tgt
       }
     }
   }
-  ## Rmpfr
-  if (!Rmpfr){
+  ## gmp
+  if (!gmp){
     output = as.integer(output)
   }
   return(output)
@@ -59,6 +44,6 @@ Evil <- function(n, Rmpfr=TRUE, PrecisionBits=496){
 
 #' @keywords internal
 #' @noRd
-is.Evil <- function(n, PB){
-  return(length(which(large_binarize(n, PB)==1))%%2==0)
+is.Evil <- function(n){
+  return(length(which(gmp_binarize(n)==1))%%2==0)
 }

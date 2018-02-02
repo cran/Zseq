@@ -5,14 +5,12 @@
 \alias{A002997}
 \title{Carmichael numbers}
 \usage{
-Carmichael(n, Rmpfr = TRUE, PrecisionBits = 496)
+Carmichael(n, gmp = TRUE)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}
 
-\item{Rmpfr}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
-
-\item{PrecisionBits}{a positive integer for precision bits larger than 2.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
 }
 \value{
 a vector of length \code{n} containing first entries from the sequence.
@@ -25,9 +23,6 @@ for all integers \eqn{b} which are relatively prime to \eqn{n}. First 6 Carmicha
 }
 \examples{
 ## generate first 3 Carmichael numbers
-first3 = Carmichael(3)
-
-## print without trailing 0's.
-print(first3, drop0trailing = TRUE)
+print(Carmichael(3))
 
 }

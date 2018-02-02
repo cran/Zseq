@@ -4,44 +4,30 @@
 #' both Palindromic and Square. First 6 such numbers are 0, 1, 4, 9, 121, 484. It uses only the base 10 decimals.
 #'
 #' @param n the number of first \code{n} entries from the sequence.
-#' @param Rmpfr a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.
-#' @param PrecisionBits a positive integer for precision bits larger than 2.
+#' @param gmp a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.
 #'
 #' @return a vector of length \code{n} containing first entries from the sequence.
 #'
 #' @examples
 #' ## generate first 10 palindromic squares
-#' first10 = Palindromic.Squares(10)
-#'
-#' ## print without trailing 0's.
-#' print(first10, drop0trailing = TRUE)
+#' print(Palindromic.Squares(10))
 #'
 #' @rdname A002779
 #' @aliases A002779
 #' @export
-Palindromic.Squares <- function(n, Rmpfr=TRUE, PrecisionBits=496){
+Palindromic.Squares <- function(n, gmp=TRUE){
   ## Preprocessing for 'n'
-  if ((length(n)!=1)||(abs(n-round(n))>sqrt(.Machine$double.eps))||(n<0)){
-    stop("* Zsequence : input 'n' should be a positive integer.")
-  }
-  n = as.integer(n)
+  n = check_n(n)
 
   ## Base
   base = as.integer(10)
 
-  ## Control over PrecisionBits
-  if (!missing(PrecisionBits)){
-    if ((length(PrecisionBits)!=1)||(PrecisionBits<2)||(is.infinite(PrecisionBits))||(is.na(PrecisionBits))||(abs(PrecisionBits-round(PrecisionBits))>sqrt(.Machine$double.eps))){
-      stop("* Zsequence : input 'PrecisionBits' should be a positive integer >= 2.")
-    }
-    PrecisionBits = as.integer(PrecisionBits)
-  }
 
   ## Main Computation : first, compute in Rmpfr form
-  output = mpfrArray(rep(0,n), PrecisionBits)
+  output = as.bigz(numeric(n))
   output[1] = 0
   if (n>1){
-    tgt = mpfr(0, PrecisionBits)
+    tgt = as.bigz(0)
     iter= 1
     while (iter < n){
       tgt  = tgt + 1
@@ -54,7 +40,7 @@ Palindromic.Squares <- function(n, Rmpfr=TRUE, PrecisionBits=496){
   }
 
   ## Rmpfr
-  if (!Rmpfr){
+  if (!gmp){
     output = as.integer(output)
   }
   return(output)
@@ -64,8 +50,8 @@ Palindromic.Squares <- function(n, Rmpfr=TRUE, PrecisionBits=496){
 #' @keywords internal
 #' @noRd
 is.Square <- function(n){
-  tgt = sqrt(n)
-  if (abs(n-round(n))>sqrt(.Machine$double.eps)){
+  tgt = sqrt(as.integer(n))
+  if (abs(tgt-round(tgt))>sqrt(.Machine$double.eps)){
     return(FALSE)
   } else {
     return(TRUE)

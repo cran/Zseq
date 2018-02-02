@@ -5,14 +5,12 @@
 \alias{A000396}
 \title{Perfect numbers}
 \usage{
-Perfect(n, Rmpfr = TRUE, PrecisionBits = 496)
+Perfect(n, gmp = TRUE)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}
 
-\item{Rmpfr}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
-
-\item{PrecisionBits}{a positive integer for precision bits larger than 2.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
 }
 \value{
 a vector of length \code{n} containing first entries from the sequence.
@@ -24,10 +22,7 @@ a number whose proper divisors sum up to the extent equal to the number itself. 
 }
 \examples{
 ## generate first 7 Perfect numbers
-first7 = Perfect(10)
-
-## print without trailing 0's.
-print(first7, drop0trailing = TRUE)
+print(Perfect(10))
 
 }
 \seealso{

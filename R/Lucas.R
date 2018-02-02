@@ -5,40 +5,25 @@
 #' where the first 6 entries are 2, 1, 3, 4, 7, 11.
 #'
 #' @param n the number of first \code{n} entries from the sequence.
-#' @param Rmpfr a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.
-#' @param PrecisionBits a positive integer for precision bits larger than 2.
+#' @param gmp a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.
 #'
 #' @return a vector of length \code{n} containing first entries from the sequence.
 #'
 #' @examples
 #' ## generate first 30 Lucas numbers
-#' first30 = Lucas(30)
-#'
-#' ## print without trailing 0's.
-#' print(first30, drop0trailing = TRUE)
+#' print(Lucas(30))
 #'
 #' @rdname A000032
 #' @aliases A000032
 #' @seealso \code{\link{Fibonacci}}
 #' @export
-Lucas <- function(n, Rmpfr=TRUE, PrecisionBits=496){
+Lucas <- function(n, gmp=TRUE){
   ## Preprocessing for 'n'
-  if ((length(n)!=1)||(abs(n-round(n))>sqrt(.Machine$double.eps))||(n<0)){
-    stop("* Zsequence : input 'n' should be a positive integer.")
-  }
-  n = as.integer(n)
-
-  ## Control over PrecisionBits
-  if (!missing(PrecisionBits)){
-    if ((length(PrecisionBits)!=1)||(PrecisionBits<2)||(is.infinite(PrecisionBits))||(is.na(PrecisionBits))||(abs(PrecisionBits-round(PrecisionBits))>sqrt(.Machine$double.eps))){
-      stop("* Zsequence : input 'PrecisionBits' should be a positive integer >= 2.")
-    }
-    PrecisionBits = as.integer(PrecisionBits)
-  }
+  n = check_n(n)
 
   ## Main Computation : first, compute in Rmpfr form
-  output = mpfrArray(rep(0,n), PrecisionBits)
-  first6 = mpfr(c(2, 1, 3, 4, 7, 11), PrecisionBits)
+  output = as.bigz(numeric(n))
+  first6 = as.bigz(c(2,1,3,4,7,11))
   if (n<=6){
     output = first6[1:n]
   } else {
@@ -48,7 +33,7 @@ Lucas <- function(n, Rmpfr=TRUE, PrecisionBits=496){
     }
   }
 
-  if (!Rmpfr){
+  if (!gmp){
     output = as.integer(output)
   }
   return(output)

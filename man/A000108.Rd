@@ -6,14 +6,12 @@
 \alias{Segner}
 \title{Catalan numbers}
 \usage{
-Catalan(n, Rmpfr = TRUE, PrecisionBits = 496)
+Catalan(n, gmp = TRUE)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}
 
-\item{Rmpfr}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
-
-\item{PrecisionBits}{a positive integer for precision bits larger than 2.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
 }
 \value{
 a vector of length \code{n} containing first entries from the sequence.
@@ -25,9 +23,6 @@ where the first 6 entries are 1, 1, 2, 5, 14, 42 with \eqn{n\ge 0.}
 }
 \examples{
 ## generate first 30 Catalan numbers
-first30 = Catalan(30)
-
-## print without trailing 0's.
-print(first30, drop0trailing = TRUE)
+print(Catalan(30))
 
 }

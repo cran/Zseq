@@ -5,14 +5,12 @@
 \alias{A001006}
 \title{Motzkin numbers}
 \usage{
-Motzkin(n, Rmpfr = TRUE, PrecisionBits = 496)
+Motzkin(n, gmp = TRUE)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}
 
-\item{Rmpfr}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
-
-\item{PrecisionBits}{a positive integer for precision bits larger than 2.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
 }
 \value{
 a vector of length \code{n} containing first entries from the sequence.
@@ -24,9 +22,6 @@ where the first 7 entries are 1, 1, 2, 4, 9, 21, 51.
 }
 \examples{
 ## generate first 30 Motzkin numbers
-first30 = Motzkin(30)
-
-## print without trailing 0's.
-print(first30, drop0trailing = TRUE)
+print(Motzkin(30))
 
 }

@@ -5,14 +5,12 @@
 \alias{A094716}
 \title{Largest value for Juggler sequence}
 \usage{
-Juggler.Largest(n, Rmpfr = TRUE, PrecisionBits = 496)
+Juggler.Largest(n, gmp = TRUE)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}
 
-\item{Rmpfr}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
-
-\item{PrecisionBits}{a positive integer for precision bits larger than 2.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
 }
 \value{
 a vector of length \code{n} containing first entries from the sequence.
@@ -23,10 +21,7 @@ a sequence that starts from \code{n}. First 6 terms are 0, 1, 2, 36, 4, 36 that 
 }
 \examples{
 ## generate first 10 numbers of largest values for Juggler sequences
-first10 = Juggler.Largest(10)
-
-## print without trailing 0's.
-print(first10, drop0trailing = TRUE)
+print(Juggler.Largest(10))
 
 }
 \seealso{

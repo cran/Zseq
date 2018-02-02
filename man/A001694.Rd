@@ -5,14 +5,12 @@
 \alias{A001694}
 \title{Powerful numbers}
 \usage{
-Powerful(n, Rmpfr = TRUE, PrecisionBits = 496)
+Powerful(n, gmp = TRUE)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}
 
-\item{Rmpfr}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
-
-\item{PrecisionBits}{a positive integer for precision bits larger than 2.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
 }
 \value{
 a vector of length \code{n} containing first entries from the sequence.
@@ -24,9 +22,6 @@ for every prime \eqn{p} dividing the number, \eqn{p^2} also divides the number. 
 }
 \examples{
 ## generate first 20 Powerful numbers
-first20 = Powerful(20)
-
-## print without trailing 0's.
-print(first20, drop0trailing = TRUE)
+print(Powerful(20))
 
 }

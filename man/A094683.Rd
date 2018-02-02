@@ -5,14 +5,12 @@
 \alias{A094683}
 \title{Juggler sequence}
 \usage{
-Juggler(start, Rmpfr = TRUE, PrecisionBits = 496)
+Juggler(start, gmp = TRUE)
 }
 \arguments{
 \item{start}{the starting nonnegative integer.}
 
-\item{Rmpfr}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
-
-\item{PrecisionBits}{a positive integer for precision bits larger than 2.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
 }
 \value{
 a vector recording the sequence of unknown length a priori.
@@ -24,6 +22,6 @@ No first 6 terms are given since it all depends on the starting value.
 }
 \examples{
 ## let's start from 9 and show the sequence
-print(Juggler(9), drop0trailing=TRUE)
+print(Juggler(9))
 
 }

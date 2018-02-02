@@ -5,14 +5,12 @@
 \alias{A000931}
 \title{Padovan numbers}
 \usage{
-Padovan(n, Rmpfr = TRUE, PrecisionBits = 496)
+Padovan(n, gmp = TRUE)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}
 
-\item{Rmpfr}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
-
-\item{PrecisionBits}{a positive integer for precision bits larger than 2.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
 }
 \value{
 a vector of length \code{n} containing first entries from the sequence.
@@ -24,9 +22,6 @@ where the first 6 entries are 1, 0, 0, 1, 0, 1.
 }
 \examples{
 ## generate first 30 Padovan numbers
-first30 = Padovan(30)
-
-## print without trailing 0's.
-print(first30, drop0trailing = TRUE)
+print(Padovan(30))
 
 }

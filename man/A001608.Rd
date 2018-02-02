@@ -5,14 +5,12 @@
 \alias{A001608}
 \title{Perrin numbers}
 \usage{
-Perrin(n, Rmpfr = TRUE, PrecisionBits = 496)
+Perrin(n, gmp = TRUE)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}
 
-\item{Rmpfr}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
-
-\item{PrecisionBits}{a positive integer for precision bits larger than 2.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
 }
 \value{
 a vector of length \code{n} containing first entries from the sequence.
@@ -24,9 +22,6 @@ where the first 6 entries are	3, 0, 2, 3, 2, 5.
 }
 \examples{
 ## generate first 30 Perrin numbers
-first30 = Perrin(30)
-
-## print without trailing 0's.
-print(first30, drop0trailing = TRUE)
+print(Perrin(30))
 
 }

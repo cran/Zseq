@@ -5,14 +5,12 @@
 \alias{A000032}
 \title{Lucas numbers}
 \usage{
-Lucas(n, Rmpfr = TRUE, PrecisionBits = 496)
+Lucas(n, gmp = TRUE)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}
 
-\item{Rmpfr}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
-
-\item{PrecisionBits}{a positive integer for precision bits larger than 2.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
 }
 \value{
 a vector of length \code{n} containing first entries from the sequence.
@@ -24,10 +22,7 @@ where the first 6 entries are 2, 1, 3, 4, 7, 11.
 }
 \examples{
 ## generate first 30 Lucas numbers
-first30 = Lucas(30)
-
-## print without trailing 0's.
-print(first30, drop0trailing = TRUE)
+print(Lucas(30))
 
 }
 \seealso{

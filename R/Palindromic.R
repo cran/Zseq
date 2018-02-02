@@ -7,27 +7,20 @@
 #'
 #' @param n the number of first \code{n} entries from the sequence.
 #' @param base choice of base.
-#' @param Rmpfr a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.
-#' @param PrecisionBits a positive integer for precision bits larger than 2.
+#' @param gmp a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.
 #'
 #' @return a vector of length \code{n} containing first entries from the sequence.
 #'
 #' @examples
 #' ## generate first 30 palindromic number in decimal
-#' first30 = Palindromic(30)
-#'
-#' ## print without trailing 0's.
-#' print(first30, drop0trailing = TRUE)
+#' print(Palindromic(30))
 #'
 #' @rdname A002113
 #' @aliases A002113
 #' @export
-Palindromic <- function(n, base=10, Rmpfr=TRUE, PrecisionBits=496){
+Palindromic <- function(n, base=10, gmp=TRUE){
   ## Preprocessing for 'n'
-  if ((length(n)!=1)||(abs(n-round(n))>sqrt(.Machine$double.eps))||(n<0)){
-    stop("* Zsequence : input 'n' should be a positive integer.")
-  }
-  n = as.integer(n)
+  n = check_n(n)
 
   ## Base
   if ((length(base)!=1)||(abs(base-round(base))>sqrt(.Machine$double.eps))||(n<2)){
@@ -35,19 +28,11 @@ Palindromic <- function(n, base=10, Rmpfr=TRUE, PrecisionBits=496){
   }
   base = as.integer(base)
 
-  ## Control over PrecisionBits
-  if (!missing(PrecisionBits)){
-    if ((length(PrecisionBits)!=1)||(PrecisionBits<2)||(is.infinite(PrecisionBits))||(is.na(PrecisionBits))||(abs(PrecisionBits-round(PrecisionBits))>sqrt(.Machine$double.eps))){
-      stop("* Zsequence : input 'PrecisionBits' should be a positive integer >= 2.")
-    }
-    PrecisionBits = as.integer(PrecisionBits)
-  }
-
-  ## Main Computation : first, compute in Rmpfr form
-  output = mpfrArray(rep(0,n), PrecisionBits)
+  ## Main Computation : first, compute in gmp form
+  output = as.bigz(numeric(n))
   output[1] = 0
   if (n>1){
-    tgt = mpfr(0, PrecisionBits)
+    tgt = as.bigz(0)
     iter= 1
     while (iter < n){
       tgt = tgt + 1
@@ -59,7 +44,7 @@ Palindromic <- function(n, base=10, Rmpfr=TRUE, PrecisionBits=496){
   }
 
   ## Rmpfr
-  if (!Rmpfr){
+  if (!gmp){
     output = as.integer(output)
   }
   return(output)
@@ -70,7 +55,7 @@ Palindromic <- function(n, base=10, Rmpfr=TRUE, PrecisionBits=496){
 #' @keywords internal
 #' @noRd
 is.Palindromic <- function(n, p){
-  strx = large_p_ary(n, p)
+  strx = gmp_p_ary(n, p)
   revx = rev(strx)
   if (all(strx==revx)){
     return(TRUE)

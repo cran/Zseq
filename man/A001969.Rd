@@ -5,14 +5,12 @@
 \alias{A001969}
 \title{Evil numbers}
 \usage{
-Evil(n, Rmpfr = TRUE, PrecisionBits = 496)
+Evil(n, gmp = TRUE)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}
 
-\item{Rmpfr}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
-
-\item{PrecisionBits}{a positive integer for precision bits larger than 2.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
 }
 \value{
 a vector of length \code{n} containing first entries from the sequence.
@@ -23,10 +21,7 @@ First 6 Evil numbers are  	0, 3, 5, 6, 9, 10.
 }
 \examples{
 ## generate first 20 Evil numbers
-first20 = Evil(20)
-
-## print without trailing 0's.
-print(first20, drop0trailing = TRUE)
+print(Evil(20))
 
 }
 \seealso{

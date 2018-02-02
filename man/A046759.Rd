@@ -6,14 +6,12 @@
 \alias{Economical}
 \title{Frugal numbers}
 \usage{
-Frugal(n, Rmpfr = TRUE, PrecisionBits = 496)
+Frugal(n, gmp = TRUE)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}
 
-\item{Rmpfr}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
-
-\item{PrecisionBits}{a positive integer for precision bits larger than 2.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
 }
 \value{
 a vector of length \code{n} containing first entries from the sequence.
@@ -25,10 +23,7 @@ it doesn't matter which base we use, here we adopt only a base of 10.
 }
 \examples{
 ## generate first 5 Frugal numbers
-first5 = Frugal(5)
-
-## print without trailing 0's.
-print(first5, drop0trailing = TRUE)
+print(Frugal(5))
 
 }
 \seealso{

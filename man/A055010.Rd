@@ -5,14 +5,12 @@
 \alias{A055010}
 \title{Thabit numbers}
 \usage{
-Thabit(n, Rmpfr = TRUE, PrecisionBits = 496)
+Thabit(n, gmp = TRUE)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}
 
-\item{Rmpfr}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
-
-\item{PrecisionBits}{a positive integer for precision bits larger than 2.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
 }
 \value{
 a vector of length \code{n} containing first entries from the sequence.
@@ -24,9 +22,6 @@ where the first 6 entries are  	0, 2, 5, 11, 23, 47 with \eqn{A_0 = 0.}
 }
 \examples{
 ## generate first 30 Thabit numbers
-first30 = Thabit(30)
-
-## print without trailing 0's.
-print(first30, drop0trailing = TRUE)
+print(Thabit(30))
 
 }

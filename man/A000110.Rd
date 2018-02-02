@@ -5,14 +5,12 @@
 \alias{A000110}
 \title{Bell numbers}
 \usage{
-Bell(n, Rmpfr = TRUE, PrecisionBits = 496)
+Bell(n, gmp = TRUE)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}
 
-\item{Rmpfr}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
-
-\item{PrecisionBits}{a positive integer for precision bits larger than 2.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
 }
 \value{
 a vector of length \code{n} containing first entries from the sequence.
@@ -23,10 +21,7 @@ the number of ways to partition a set of \code{n} labeled elements,
 where the first 6 entries are 1, 1, 2, 5, 15, 52.
 }
 \examples{
-## generate first 30 Bell numbers
-first30 = Bell(30)
-
-## print without trailing 0's.
-print(first30, drop0trailing = TRUE)
+## generate first 30 Bell numbers and print
+print(Bell(30))
 
 }

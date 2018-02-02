@@ -5,14 +5,12 @@
 \alias{A000045}
 \title{Fibonacci numbers}
 \usage{
-Fibonacci(n, Rmpfr = FALSE, PrecisionBits = 496)
+Fibonacci(n, gmp = FALSE)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}
 
-\item{Rmpfr}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
-
-\item{PrecisionBits}{a positive integer for precision bits larger than 2.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
 }
 \value{
 a vector of length \code{n} containing first entries from the sequence.
@@ -24,9 +22,6 @@ where the first 6 entries are 0, 1, 1, 2, 3, 5 with \eqn{n\ge 0.}
 }
 \examples{
 ## generate first 30 Fibonacci numbers
-first30 = Fibonacci(30)
-
-## print without trailing 0's.
-print(first30, drop0trailing = TRUE)
+print(Fibonacci(30))
 
 }

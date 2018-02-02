@@ -5,44 +5,29 @@
 #' The first 6 composite numbers are 4, 6, 8, 9, 10, 12.
 #'
 #' @param n the number of first \code{n} entries from the sequence.
-#' @param Rmpfr a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.
-#' @param PrecisionBits a positive integer for precision bits larger than 2.
+#' @param gmp a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.
 #'
 #' @return a vector of length \code{n} containing first entries from the sequence.
 #'
 #' @examples
 #' ## generate first 30 Composite numbers
-#' first30 = Composite(30)
-#'
-#' ## print without trailing 0's.
-#' print(first30, drop0trailing = TRUE)
+#' print(Composite(30))
 #'
 #' @rdname A002808
 #' @aliases A002808
 #' @export
-Composite <- function(n, Rmpfr=TRUE, PrecisionBits=496){
+Composite <- function(n, gmp=TRUE){
   ## Preprocessing for 'n'
-  if ((length(n)!=1)||(abs(n-round(n))>sqrt(.Machine$double.eps))||(n<0)){
-    stop("* Zsequence : input 'n' should be a positive integer.")
-  }
-  n = as.integer(n)
-
-  ## Control over PrecisionBits
-  if (!missing(PrecisionBits)){
-    if ((length(PrecisionBits)!=1)||(PrecisionBits<2)||(is.infinite(PrecisionBits))||(is.na(PrecisionBits))||(abs(PrecisionBits-round(PrecisionBits))>sqrt(.Machine$double.eps))){
-      stop("* Zsequence : input 'PrecisionBits' should be a positive integer >= 2.")
-    }
-    PrecisionBits = as.integer(PrecisionBits)
-  }
+  n = check_n(n)
 
   ## Main Computation : first, compute in Rmpfr form
-  output = mpfrArray(c(4), PrecisionBits)
+  output = as.bigz(4)
   if (n>1){
     iter = 1
-    tgt  = mpfr(4, PrecisionBits)
+    tgt  = as.bigz(4)
     while (iter<n){
       tgt = tgt + 1
-      if (!large_isprime(tgt)){
+      if (!gmp_isprime(tgt)){
         output = append(output, tgt)
         iter = iter + 1
       }
@@ -50,7 +35,7 @@ Composite <- function(n, Rmpfr=TRUE, PrecisionBits=496){
   }
 
   ## Rmpfr
-  if (!Rmpfr){
+  if (!gmp){
     output = as.integer(output)
   }
   return(output)

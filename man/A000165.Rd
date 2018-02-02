@@ -6,14 +6,12 @@
 \alias{A001147}
 \title{Double Factorial numbers}
 \usage{
-Factorial.Double(n, Rmpfr = TRUE, PrecisionBits = 496, odd = TRUE)
+Factorial.Double(n, gmp = TRUE, odd = TRUE)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}
 
-\item{Rmpfr}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
-
-\item{PrecisionBits}{a positive integer for precision bits larger than 2.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
 
 \item{odd}{a logical; \code{TRUE} for double factorial of odd numbers, \code{FALSE} for even numbers.}
 }
@@ -25,11 +23,8 @@ Under OEIS \href{https://oeis.org/A000165}{A000165} and \href{https://oeis.org/A
 For example, if \eqn{n=5}, then \eqn{n!!=5*3*1}.
 }
 \examples{
-## generate first 10 Factorials
-first10 = Factorial(10)
-
-## print without trailing 0's.
-print(first10, drop0trailing = TRUE)
+## generate first 10 odd Factorials
+print(Factorial(10))
 
 }
 \seealso{

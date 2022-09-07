@@ -10,8 +10,10 @@
 #' @return a vector of length \code{n} containing first entries from the sequence.
 #'
 #' @examples
-#' ## generate first 10 odd Factorials
-#' print(Factorial(10))
+#' \donttest{
+#' ## generate first 10 double factorials
+#' print(Factorial.Double(10))
+#' }
 #'
 #' @seealso \code{\link{Factorial}}
 #' @rdname A000165

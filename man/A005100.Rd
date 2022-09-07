@@ -18,11 +18,13 @@ a vector of length \code{n} containing first entries from the sequence.
 \description{
 Under OEIS \href{https://oeis.org/A005100}{A005100}, a \emph{deficient} number is
 a number whose proper divisors sum up to the extent smaller than the number itself. First
-6 abundant numbers are 	1, 2, 3, 4, 5, 7
+6 deficient numbers are 	1, 2, 3, 4, 5, 7
 }
 \examples{
+\donttest{
 ## generate first 30 Deficient numbers
 print(Deficient(30))
+}
 
 }
 \seealso{

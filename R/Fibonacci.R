@@ -5,7 +5,7 @@
 #' where the first 6 entries are 0, 1, 1, 2, 3, 5 with \eqn{n\ge 0.}
 #'
 #' @param n the number of first \code{n} entries from the sequence.
-#' @param gmp a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.
+#' @param gmp a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise (default: \code{TRUE}).
 #'
 #' @return a vector of length \code{n} containing first entries from the sequence.
 #'
@@ -16,7 +16,7 @@
 #' @rdname A000045
 #' @aliases A000045
 #' @export
-Fibonacci <- function(n, gmp=FALSE){
+Fibonacci <- function(n, gmp=TRUE){
   ## Preprocessing for 'n'
   n = check_n(n)
   ## Main Computation : first, compute in Rmpfr form

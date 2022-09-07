@@ -23,8 +23,10 @@ Under OEIS \href{https://oeis.org/A000165}{A000165} and \href{https://oeis.org/A
 For example, if \eqn{n=5}, then \eqn{n!!=5*3*1}.
 }
 \examples{
-## generate first 10 odd Factorials
-print(Factorial(10))
+\donttest{
+## generate first 10 double factorials
+print(Factorial.Double(10))
+}
 
 }
 \seealso{

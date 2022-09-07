@@ -10,8 +10,10 @@
 #' @return a vector of length \code{n} containing first entries from the sequence.
 #'
 #' @examples
+#' \dontrun{
 #' ## generate first 7 Perfect numbers
 #' print(Perfect(10))
+#' }
 #'
 #' @seealso \code{\link{Deficient}}, \code{\link{Abundant}}
 #' @rdname A000396

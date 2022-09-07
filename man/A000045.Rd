@@ -5,12 +5,12 @@
 \alias{A000045}
 \title{Fibonacci numbers}
 \usage{
-Fibonacci(n, gmp = FALSE)
+Fibonacci(n, gmp = TRUE)
 }
 \arguments{
 \item{n}{the number of first \code{n} entries from the sequence.}
 
-\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.}
+\item{gmp}{a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise (default: \code{TRUE}).}
 }
 \value{
 a vector of length \code{n} containing first entries from the sequence.

@@ -21,8 +21,10 @@ a number whose proper divisors sum up to the extent equal to the number itself. 
 6 abundant numbers are	6, 28, 496, 8128, 33550336, 8589869056.
 }
 \examples{
+\dontrun{
 ## generate first 7 Perfect numbers
 print(Perfect(10))
+}
 
 }
 \seealso{

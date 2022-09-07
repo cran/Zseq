@@ -2,7 +2,7 @@
 #'
 #' Under OEIS \href{https://oeis.org/A005100}{A005100}, a \emph{deficient} number is
 #' a number whose proper divisors sum up to the extent smaller than the number itself. First
-#' 6 abundant numbers are 	1, 2, 3, 4, 5, 7
+#' 6 deficient numbers are 	1, 2, 3, 4, 5, 7
 #'
 #' @param n the number of first \code{n} entries from the sequence.
 #' @param gmp a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.
@@ -10,8 +10,10 @@
 #' @return a vector of length \code{n} containing first entries from the sequence.
 #'
 #' @examples
+#' \donttest{
 #' ## generate first 30 Deficient numbers
 #' print(Deficient(30))
+#' }
 #'
 #' @seealso \code{\link{Abundant}}, \code{\link{Perfect}}
 #' @rdname A005100

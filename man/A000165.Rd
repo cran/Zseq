@@ -4,7 +4,7 @@
 \alias{Factorial.Double}
 \alias{A000165}
 \alias{A001147}
-\title{Double Factorial numbers}
+\title{Double Factorial of even or odd numbers}
 \usage{
 Factorial.Double(n, gmp = TRUE, odd = TRUE)
 }
@@ -20,7 +20,9 @@ a vector of length \code{n} containing first entries from the sequence.
 }
 \description{
 Under OEIS \href{https://oeis.org/A000165}{A000165} and \href{https://oeis.org/A001147}{A001147}, a \emph{Double Factorial} is the factorial of numbers with same parity.
-For example, if \eqn{n=5}, then \eqn{n!!=5*3*1}.
+For example, if \eqn{n=5}, then \eqn{n!!=5*3*1}. Please be aware that this function
+returns either even- or odd-valued numbers' double factorials per the
+use of \code{odd} parameter.
 }
 \examples{
 \donttest{

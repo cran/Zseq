@@ -1,7 +1,9 @@
-#' Double Factorial numbers
+#' Double Factorial of even or odd numbers
 #'
 #' Under OEIS \href{https://oeis.org/A000165}{A000165} and \href{https://oeis.org/A001147}{A001147}, a \emph{Double Factorial} is the factorial of numbers with same parity.
-#' For example, if \eqn{n=5}, then \eqn{n!!=5*3*1}.
+#' For example, if \eqn{n=5}, then \eqn{n!!=5*3*1}. Please be aware that this function
+#' returns either even- or odd-valued numbers' double factorials per the
+#' use of \code{odd} parameter.
 #'
 #' @param n the number of first \code{n} entries from the sequence.
 #' @param gmp a logical; \code{TRUE} to use large number representation, \code{FALSE} otherwise.

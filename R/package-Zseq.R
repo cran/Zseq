@@ -5,8 +5,7 @@
 #' provide pedagogical toolset. We adopted \pkg{gmp} for flexible large number computations in that users can easily experience
 #' large number sequences on a non-exclusive generic computing platform.
 #'
-#' @docType package
-#' @name Zseq-package
+#' @noRd
 #' @import gmp
 #' @importFrom utils packageVersion getFromNamespace
 NULL
